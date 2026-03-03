@@ -1,0 +1,31 @@
+# Checkov configuration for Terraform security scanning
+# https://www.checkov.io/
+
+framework:
+  - terraform
+
+output:
+  - cli
+
+quiet: true
+compact: true
+download-external-modules: true
+evaluate-variables: true
+
+directory:
+  - .
+
+skip-check:
+  - CKV_TF_1    # Ensure Terraform module sources use a commit hash
+
+skip-path:
+  - .terraform/
+  - .terragrunt-cache/
+  - "**/.terraform/"
+  - "**/.terraform.lock.hcl"
+  - "**/.terragrunt-cache/"
+  - "**/terraform"
+  - "**/terraform-output.json"
+  - "*.tfstate*"
+  - "**/*.tfstate*"
+  - terraform-output.json
