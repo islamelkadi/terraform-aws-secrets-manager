@@ -92,8 +92,7 @@ For full details on security profiles and how controls vary by environment, see 
 
 ```hcl
 module "secret" {
-  source = "github.com/islamelkadi/terraform-aws-secrets-manager?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-secrets-manager"
   namespace   = "example"
   environment = "prod"
   name        = "database-password"
@@ -118,8 +117,7 @@ module "secret" {
 
 ```hcl
 module "secret" {
-  source = "github.com/islamelkadi/terraform-aws-secrets-manager?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-secrets-manager"
   security_controls = module.metadata.security_controls
   
   namespace   = "example"
@@ -158,8 +156,7 @@ module "secret" {
 
 # Lambda function for secret rotation
 module "rotation_lambda" {
-  source = "github.com/islamelkadi/terraform-aws-lambda?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-secrets-manager"
   namespace   = "example"
   environment = "prod"
   name        = "secret-rotation"
@@ -184,8 +181,7 @@ module "rotation_lambda" {
 
 ```hcl
 module "api_key_secret" {
-  source = "github.com/islamelkadi/terraform-aws-secrets-manager?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-secrets-manager"
   security_controls = module.metadata.security_controls
   
   namespace   = "example"
@@ -212,8 +208,7 @@ module "api_key_secret" {
 
 # Lambda can retrieve secret at runtime
 module "api_lambda" {
-  source = "github.com/islamelkadi/terraform-aws-lambda?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-secrets-manager"
   namespace   = "example"
   environment = "prod"
   name        = "api-client"
@@ -248,8 +243,7 @@ module "api_lambda" {
 
 ```hcl
 module "dev_secret" {
-  source = "github.com/islamelkadi/terraform-aws-secrets-manager?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-secrets-manager"
   security_controls = module.metadata.security_controls
   
   security_control_overrides = {
@@ -302,8 +296,7 @@ Both servers run via `uvx` and require no additional installation beyond the [bo
 # Demonstrates secret creation with KMS encryption
 
 module "secret" {
-  source = "../"
-
+  source = "github.com/islamelkadi/terraform-aws-secrets-manager"
   namespace   = var.namespace
   environment = var.environment
   name        = var.name
