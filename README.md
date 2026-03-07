@@ -10,7 +10,6 @@ A reusable Terraform module for creating AWS Secrets Manager secrets with AWS Se
 - [Usage](#usage)
 - [Requirements](#requirements)
 - [MCP Servers](#mcp-servers)
-- [License](#license)
 
 
 ## Prerequisites
@@ -384,11 +383,6 @@ module "secret" {
 | <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to the secret |
 | <a name="output_version_id"></a> [version\_id](#output\_version\_id) | Secret version ID (if secret value was provided) |
 
-
-## License
-
-MIT Licensed. See [LICENSE](LICENSE) for full details.
-<!-- END_TF_DOCS -->
 
 ## Example
 
