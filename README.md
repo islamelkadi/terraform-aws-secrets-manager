@@ -65,18 +65,6 @@ Security controls are automatically applied based on the environment through the
 
 For full details on security profiles and how controls vary by environment, see the [Security Profiles](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles) documentation.
 
-### Security Best Practices
-
-**Production Secrets:**
-- Use KMS customer-managed keys
-- Set recovery window to 30 days (maximum)
-- Enable automatic rotation where possible
-- Use IAM policies to restrict access
-- Enable CloudTrail logging for secret access
-
-**Development Secrets:**
-- KMS encryption still recommended
-- Shorter recovery window acceptable (7-14 days)
 ## Features
 
 - AWS Secrets Manager secret
