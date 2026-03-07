@@ -5,15 +5,13 @@ A reusable Terraform module for creating AWS Secrets Manager secrets with AWS Se
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
-- [Security Controls](#security-controls)
+- [Security](#security)
 - [Features](#features)
-- [Usage Examples](#usage-examples)
+- [Usage](#usage)
 - [Requirements](#requirements)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
-- [Examples](#examples)
+- [MCP Servers](#mcp-servers)
+- [License](#license)
 
----
 
 ## Prerequisites
 
@@ -30,7 +28,11 @@ make bootstrap
 
 This will install/upgrade: tfenv, Terraform (via tfenv), tflint, terraform-docs, checkov, and pre-commit.
 
-## Security Controls
+
+
+## Security
+
+### Security Controls
 
 This module implements AWS Security Hub compliance with an extensible override system.
 
@@ -54,6 +56,31 @@ This module implements AWS Security Hub compliance with an extensible override s
 - KMS encryption still recommended
 - Shorter recovery window acceptable (7-14 days)
 
+### Environment-Based Security Controls
+
+Security controls are automatically applied based on the environment through the [terraform-aws-metadata](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles){:target="_blank"} module's security profiles:
+
+| Control | Dev | Staging | Prod |
+|---------|-----|---------|------|
+| KMS customer-managed keys | Optional | Required | Required |
+| Recovery window | 7 days | 14-30 days | 30 days |
+| Automatic rotation | Optional | Recommended | Required |
+| IAM access restriction | Enforced | Enforced | Enforced |
+
+For full details on security profiles and how controls vary by environment, see the <a href="https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles" target="_blank">Security Profiles</a> documentation.
+
+### Security Best Practices
+
+**Production Secrets:**
+- Use KMS customer-managed keys
+- Set recovery window to 30 days (maximum)
+- Enable automatic rotation where possible
+- Use IAM policies to restrict access
+- Enable CloudTrail logging for secret access
+
+**Development Secrets:**
+- KMS encryption still recommended
+- Shorter recovery window acceptable (7-14 days)
 ## Features
 
 - AWS Secrets Manager secret
@@ -259,18 +286,6 @@ module "dev_secret" {
 }
 ```
 
-## Environment-Based Security Controls
-
-Security controls are automatically applied based on the environment through the [terraform-aws-metadata](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles){:target="_blank"} module's security profiles:
-
-| Control | Dev | Staging | Prod |
-|---------|-----|---------|------|
-| KMS customer-managed keys | Optional | Required | Required |
-| Recovery window | 7 days | 14-30 days | 30 days |
-| Automatic rotation | Optional | Recommended | Required |
-| IAM access restriction | Enforced | Enforced | Enforced |
-
-For full details on security profiles and how controls vary by environment, see the <a href="https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles" target="_blank">Security Profiles</a> documentation.
 
 ## MCP Servers
 
@@ -369,9 +384,6 @@ module "secret" {
 | <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to the secret |
 | <a name="output_version_id"></a> [version\_id](#output\_version\_id) | Secret version ID (if secret value was provided) |
 
-## Example
-
-See [example/](example/) for a complete working example with all features.
 
 ## License
 
