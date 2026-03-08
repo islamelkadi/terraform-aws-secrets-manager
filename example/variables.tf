@@ -30,12 +30,6 @@ variable "description" {
   default     = "API credentials for external service"
 }
 
-variable "kms_key_arn" {
-  description = "ARN of KMS key for encryption"
-  type        = string
-  default     = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"
-}
-
 variable "secret_string" {
   description = "Secret value as a string"
   type        = string
