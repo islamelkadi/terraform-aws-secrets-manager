@@ -14,7 +14,7 @@ module "secret" {
   region      = var.region
 
   description = var.description
-  
+
   # Direct reference to kms.tf module output
   kms_key_arn = module.kms_key.key_arn
 
