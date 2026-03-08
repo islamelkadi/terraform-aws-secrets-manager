@@ -1,5 +1,9 @@
 # Terraform AWS Secrets Manager Module
 
+[![Terraform Security](https://github.com/islamelkadi/terraform-aws-secrets-manager/actions/workflows/terraform-security.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-secrets-manager/actions/workflows/terraform-security.yaml)
+[![Terraform Lint & Validation](https://github.com/islamelkadi/terraform-aws-secrets-manager/actions/workflows/terraform-lint.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-secrets-manager/actions/workflows/terraform-lint.yaml)
+[![Terraform Docs](https://github.com/islamelkadi/terraform-aws-secrets-manager/actions/workflows/terraform-docs.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-secrets-manager/actions/workflows/terraform-docs.yaml)
+
 A reusable Terraform module for creating AWS Secrets Manager secrets with AWS Security Hub compliance (FSBP, CIS, NIST 800-53, NIST 800-171, PCI DSS), KMS encryption, automatic rotation, and flexible security control overrides.
 
 ## Table of Contents
