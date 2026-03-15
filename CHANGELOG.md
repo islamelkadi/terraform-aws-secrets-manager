@@ -1,3 +1,16 @@
+## [1.1.0](https://github.com/islamelkadi/terraform-aws-secrets-manager/compare/v1.0.2...v1.1.0) (2026-03-15)
+
+
+### Features
+
+* add manual triggering to release workflow ([fc59bc3](https://github.com/islamelkadi/terraform-aws-secrets-manager/commit/fc59bc32daf892010b136af7a334e20537554ecf))
+
+
+### Documentation
+
+* add GitHub Actions workflow status badges ([045b77c](https://github.com/islamelkadi/terraform-aws-secrets-manager/commit/045b77cb22da07a0549fff45e8d2dd1dd59cade1))
+* add security scan suppressions section to README ([3f876c5](https://github.com/islamelkadi/terraform-aws-secrets-manager/commit/3f876c5f0d5ac94d1f2c1d67b0d295ed8bc48b3f))
+
 ## [1.0.2](https://github.com/islamelkadi/terraform-aws-secrets-manager/compare/v1.0.1...v1.0.2) (2026-03-08)
 
 
